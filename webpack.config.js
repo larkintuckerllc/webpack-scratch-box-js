@@ -28,7 +28,7 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'webpack scratch'
+      template: 'public/index.html'
     })
   ]
 }
