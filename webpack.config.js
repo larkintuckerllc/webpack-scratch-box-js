@@ -19,6 +19,7 @@ const config = {
   },
   resolve: {
     extensions: [
+      '.mjs',
       '.js',
       '.jsx'
     ]
