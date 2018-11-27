@@ -28,19 +28,13 @@ const config = env => ({
     ],
   },
   resolve: {
-    extensions: [
-      '.mjs',
-      '.js',
-      '.jsx',
-    ],
+    extensions: ['.mjs', '.js', '.jsx'],
   },
   devServer: {
     contentBase: './dist',
   },
   plugins: [
-    env && env.analyze
-      ? new BundleAnalyzerPlugin()
-      : new NothingPlugin(),
+    env && env.analyze ? new BundleAnalyzerPlugin() : new NothingPlugin(),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
     }),
