@@ -1,15 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import '@babel/polyfill';
+import React from 'react';
+import { render } from 'react-dom';
 import { hot } from 'react-hot-loader'
-
-class App extends React.Component {
-  render() {
-    return <div>Hello {this.props.name}</div>;
-  }
-}
+import 'whatwg-fetch';
+import App from './components/App';
 
 const AppWithHot = hot(module)(App);
-
-var mountNode = document.getElementById("app");
-ReactDOM.render(<AppWithHot name="Jane" />, mountNode);
-
+const mountNode = document.getElementById('app');
+render(<AppWithHot />, mountNode);
