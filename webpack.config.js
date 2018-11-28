@@ -25,6 +25,21 @@ const config = env => ({
         use: 'babel-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: 'file-loader',
+      },
     ],
   },
   resolve: {
