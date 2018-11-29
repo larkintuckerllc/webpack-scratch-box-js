@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 function NothingPlugin() {
@@ -44,7 +45,7 @@ const config = env => ({
         test: /\.(css|scss|sass)$/,
         exclude: /\.module\.(css|scss|sass)$/,
         use: [
-          'style-loader',
+          env && env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
           {
             loader: 'css-loader',
             options: {
@@ -58,7 +59,7 @@ const config = env => ({
       {
         test: /\.module\.(css|scss|sass)$/,
         use: [
-          'style-loader',
+          env && env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
           {
             loader: 'css-loader',
             options: {
@@ -83,6 +84,9 @@ const config = env => ({
     new HtmlWebpackPlugin({
       template: 'public/index.html',
     }),
+    env && env.NODE_ENV === 'production'
+      ? new MiniCssExtractPlugin({ chunkFilename: '[id].css', filename: '[name].css' })
+      : new NothingPlugin(),
   ],
 });
 
