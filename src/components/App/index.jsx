@@ -1,5 +1,7 @@
 import React from 'react';
 import cat from './cat.jpg';
+import AppCSS from './AppCSS';
+import AppCSSModules from './AppCSSModules';
 
 const App = () => (
   <div>
@@ -7,6 +9,8 @@ const App = () => (
     <div>
       <img src={cat} alt="cat" />
     </div>
+    <AppCSS />
+    <AppCSSModules />
   </div>
 );
 
