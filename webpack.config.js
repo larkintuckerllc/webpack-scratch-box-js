@@ -41,20 +41,31 @@ const config = env => ({
         use: 'file-loader',
       },
       {
-        test: /\.css$/,
-        exclude: /\.module\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.module\.css$/,
+        test: /\.(css|scss|sass)$/,
+        exclude: /\.module\.(css|scss|sass)$/,
         use: [
           'style-loader',
           {
             loader: 'css-loader',
             options: {
+              importLoaders: 1,
+            },
+          },
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.module\.(css|scss|sass)$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
               modules: true,
             },
           },
+          'sass-loader',
         ],
       },
     ],
