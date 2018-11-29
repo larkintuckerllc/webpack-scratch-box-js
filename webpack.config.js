@@ -48,9 +48,10 @@ const config = env => ({
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 1,
+              importLoaders: 2,
             },
           },
+          'postcss-loader',
           'sass-loader',
         ],
       },
@@ -61,10 +62,11 @@ const config = env => ({
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 1,
+              importLoaders: 2,
               modules: true,
             },
           },
+          'postcss-loader',
           'sass-loader',
         ],
       },
