@@ -1,5 +1,12 @@
 {
   "name": "webpack-scratch-box",
+  "sideEffects": [
+    "@babel/polyfill",
+    "whatwg-fetch",
+    "*.css",
+    "*.scss",
+    "*.sass"
+  ],
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
