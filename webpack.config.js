@@ -14,7 +14,7 @@ const config = env => ({
   entry: './src/index.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[contenthash].js',
+    filename: env && env.NODE_ENV === 'production' ? '[name].[contenthash].js' : '[name].js',
   },
   devtool: env && env.NODE_ENV === 'production' ? 'source-map' : 'cheap-module-eval-source-map',
   module: {

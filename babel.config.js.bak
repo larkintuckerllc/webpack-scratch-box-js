@@ -1,0 +1,21 @@
+module.exports = () => {
+  const presets = [
+    [
+      '@babel/preset-env',
+      {
+        modules: false,
+      },
+    ],
+    '@babel/preset-react',
+  ];
+  const plugins = [
+    'react-hot-loader/babel',
+    '@babel/plugin-proposal-class-properties',
+    '@babel/plugin-syntax-dynamic-import',
+  ];
+  // TODO: RHL
+  return {
+    presets,
+    plugins,
+  };
+};
