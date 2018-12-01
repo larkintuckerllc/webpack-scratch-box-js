@@ -7,7 +7,7 @@ import App from './components/App';
 import { cube } from './math';
 
 const AppWithHot = hot(module)(App);
-
 const mountNode = document.getElementById('app');
-render(<AppWithHot />, mountNode);
+const AppUsed = process.NODE_ENV === 'production' ? <App /> : <AppWithHot />;
+render(AppUsed, mountNode);
 window.console.log(cube(2));

@@ -1,4 +1,5 @@
-module.exports = () => {
+module.exports = api => {
+  api.cache(true);
   const presets = [
     [
       '@babel/preset-env',
@@ -9,11 +10,12 @@ module.exports = () => {
     '@babel/preset-react',
   ];
   const plugins = [
-    'react-hot-loader/babel',
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-syntax-dynamic-import',
   ];
-  // TODO: RHL
+  if (process.env.NODE_ENV !== 'production') {
+    plugins.push('react-hot-loader/babel');
+  }
   return {
     presets,
     plugins,
