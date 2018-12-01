@@ -14,7 +14,7 @@
     "clean": "rm -f -r dist",
     "build-dev": "webpack -d --mode development",
     "build-prod": "webpack -p --mode production --env.NODE_ENV=production",
-    "start": "webpack-dev-server --open --hot --mode development",
+    "start": "webpack-dev-server --open --mode development",
     "analyze": "webpack -p --mode production --env.analyze --env.NODE_ENV=production"
   },
   "author": "",
