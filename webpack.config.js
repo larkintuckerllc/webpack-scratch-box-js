@@ -13,6 +13,7 @@ const config = env => ({
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
+  devtool: env && env.NODE_ENV === 'production' ? 'source-map' : 'cheap-module-eval-source-map',
   module: {
     rules: [
       {
