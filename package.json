@@ -13,9 +13,9 @@
   "scripts": {
     "clean": "rm -f -r dist",
     "build-dev": "webpack -d --mode development",
-    "build-prod": "export NODE_ENV=production && webpack -p --mode production --env.NODE_ENV=production",
+    "build-prod": "NODE_ENV=production webpack -p --mode production --env.NODE_ENV=production",
     "start": "webpack-dev-server --open --hot --mode development",
-    "analyze": "export NODE_ENV=production && webpack -p --mode production --env.analyze --env.NODE_ENV=production"
+    "analyze": "NODE_ENV=production webpack -p --mode production --env.analyze --env.NODE_ENV=production"
   },
   "author": "",
   "license": "ISC",
