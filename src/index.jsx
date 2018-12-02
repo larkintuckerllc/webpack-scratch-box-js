@@ -11,3 +11,5 @@ const mountNode = document.getElementById('app');
 const AppUsed = process.NODE_ENV === 'production' ? <App /> : <AppWithHot />;
 render(AppUsed, mountNode);
 window.console.log(cube(2));
+window.console.log(process.env.TEST);
+window.console.log(process.env.REACT_APP_TEST);

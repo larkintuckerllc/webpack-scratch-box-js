@@ -1,15 +1,21 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const dotenv = require('dotenv');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const webpack = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 function NothingPlugin() {
   this.apply = function Apply() {};
 }
 
+const ENV_REGEX = /^REACT_APP_/;
+
+dotenv.config();
+const envKeys = Object.keys(process.env).filter(key => key.match(ENV_REGEX));
 const config = env => ({
   entry: './src/index.jsx',
   output: {
@@ -95,6 +101,7 @@ const config = env => ({
           filename: '[name].[contenthash].css',
         })
       : new NothingPlugin(),
+    new webpack.EnvironmentPlugin(envKeys),
   ],
   optimization: {
     minimizer: [
